@@ -1,5 +1,5 @@
 import React from 'react';
-import { posts } from './date/posts';
+import { posts } from './data/posts';
 import classes from './css/ArticleList.module.css';
 
 export const ArticleList = () => {
