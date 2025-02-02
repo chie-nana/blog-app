@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArticleList } from './ArticleList';
-import { Header } from './Header';
+import { ArticleList } from './pages/ArticleList';
+import { Header } from './components/Header';
 import './App.css';
 
 function App() {

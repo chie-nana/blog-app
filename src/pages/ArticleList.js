@@ -1,5 +1,5 @@
 import React from 'react';
-import { posts } from './data/posts';
+import { posts } from '../data/posts';
 import classes from './css/ArticleList.module.css';
 
 export const ArticleList = () => {
@@ -24,9 +24,9 @@ export const ArticleList = () => {
               </div>
               <h2>{post.title}</h2>
               {/* ReactでHTMLをそのまま表示:dangerouslySetInnerHTML属性を使用 */}
-              <p className={classes.postContent} dangerouslySetInnerHTML={{ __html:post.content }}></p>
+              <p className={classes.postContent} dangerouslySetInnerHTML={{ __html: post.content }}></p>
             </li>
-        ))}
+          ))}
       </ul>
     </div>
   );
