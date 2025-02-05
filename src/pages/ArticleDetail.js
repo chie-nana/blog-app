@@ -18,8 +18,18 @@ export const ArticleDetail = () => {
           <div className={classes.detailImgBox}>
             <img className={classes.detailImg} src={post.thumbnailUrl} alt={post.title} />
           </div>
+          <div className={classes.postWrapper}>
+            <time className={classes.detailDate}>{new Date(post.createdAt).toLocaleDateString()}</time>
+            <div>{
+              post.categories.map((category) => {
+                return (
+                  <span key={category} className={classes.postCategory}>{category}</span>
+                );
+              })}
+            </div>
+          </div>
           <h2>{post.title}</h2>
-          <p>{post.content}</p>
+          <p className={classes.detailContent} dangerouslySetInnerHTML={{ __html: post.content }}></p>
         </div>
       </div>
     </>
