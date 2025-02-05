@@ -1,12 +1,14 @@
 import React from 'react';
-import classes from './css/Header.module.css';
+import classes from '../css/Header.module.css';
+import { Link } from 'react-router-dom'
+
 
 export const Header = () => {
   return (
     <header className={classes.header}>
       <ul>
-        <li><a href="/">Blog</a></li>
-        <li><a href="#">お問い合わせ</a></li>
+        <li><Link to="/">Blog</Link></li>
+        <li><Link to="/contact">お問い合わせ</Link></li>
       </ul>
     </header>
   );
