@@ -28,7 +28,7 @@ export const ArticleDetail = () => {
               })}
             </div>
           </div>
-          <h2>{post.title}</h2>
+          <h2>APIで取得した{post.title}</h2>
           <p className={classes.detailContent} dangerouslySetInnerHTML={{ __html: post.content }}></p>
         </div>
       </div>
