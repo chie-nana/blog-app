@@ -9,8 +9,8 @@ export const ArticleList = () => {
     const fetcher = async () => {
       try {
         const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts");
-        const date = await res.json();
-        setPosts(date.posts)
+        const data = await res.json();
+        setPosts(data.posts)
       } catch (error) {
         console.log("データの取得に失敗しました", error);
       }
