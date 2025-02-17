@@ -1,9 +1,22 @@
-import React from 'react';
-import { posts } from '../data/posts';
+import React, { useEffect, useState } from 'react';
 import classes from '../css/ArticleList.module.css';
 import { Link } from 'react-router-dom';
 
 export const ArticleList = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetcher = async () => {
+      try {
+        const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts");
+        const date = await res.json();
+        setPosts(date.posts)
+      } catch (error) {
+        console.log("データの取得に失敗しました", error);
+      }
+    };
+    fetcher();
+  }, []);
   return (
     <div className={classes.container}>
       <ul>
