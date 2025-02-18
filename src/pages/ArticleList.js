@@ -4,19 +4,34 @@ import { Link } from 'react-router-dom';
 
 export const ArticleList = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetcher = async () => {
       try {
         const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts");
+        if (!res.ok) throw new Error("記事の取得に失敗しました")
         const data = await res.json();
         setPosts(data.posts)
       } catch (error) {
-        console.log("データの取得に失敗しました", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
     fetcher();
   }, []);
+  if (loading) {
+    return <p>読み込み中</p>;
+  }
+  if (error) {
+    return <p>エラー:{error}</p>;
+  }
+  if (posts.length === 0) {
+    return <p>記事が見つかりませんでした</p>;
+  }
+
   return (
     <div className={classes.container}>
       <ul>
