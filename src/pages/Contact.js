@@ -112,8 +112,18 @@ export const Contact = () => {
             {errors.message && <p className={classes.error}>{errors.message}</p>}
         </label>
         </div>
-        <div className={classes.btn}>
-          <input type="submit" value="送信" disabled={isSubmitting} />
+        <div className={classes.btnContainer}>
+          <input
+            type="submit"
+            value="送信"
+            disabled={isSubmitting}
+          />
+          <button
+            type="button"
+            onClick={handleClear}
+            disabled={isSubmitting}
+            className={classes.clearBtn}
+          >クリア</button>
         </div>
       </form>
     </div>
