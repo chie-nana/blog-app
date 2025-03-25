@@ -64,53 +64,50 @@ export const Contact = () => {
     setContactData({ name: '', email: '', message: '' });
   };
   return(
-    <div className={classes.contactForm}>
+    <div className={classes.contactContainer}>
+      <h2>問い合わせフォーム</h2>
       <form onSubmit={handleSubmit}>
-        <h2>問い合わせフォーム</h2>
 
-        <div className="formItem">
-          <label>
-            <dt>お名前</dt>
-            <dd>
-              <input
-                type="text"
-                id="name"
-                maxLength="30"
-                value={contactData.name}
-                onChange={handleChange}
-                disabled={isSubmitting}
-              />
-            </dd>
+        <div className={classes.formItem}>
+          <label htmlFor="name">お名前</label>
+          <div className={classes.formChild}>
+            <input
+              type="text"
+              id="name"
+              maxLength="30"
+              value={contactData.name}
+              onChange={handleChange}
+              disabled={isSubmitting}
+            />
             {errors.name && <p className={classes.error}>{errors.name}</p>}
-          </label>
-
-          <label>
-            <dt>メールアドレス</dt>
-            <dd>
-              <input
-                type="email"
-                id="email"
-                value={contactData.email}
-                onChange={handleChange}
-                disabled={isSubmitting}
+          </div>
+        </div>
+        <div className={classes.formItem}>
+          <label htmlFor="email">メールアドレス</label>
+          <div className={classes.formChild}>
+            <input
+              type="email"
+              id="email"
+              value={contactData.email}
+              onChange={handleChange}
+              disabled={isSubmitting}
               />
-            </dd>
             {errors.email && <p className={classes.error}>{errors.email}</p>}
-          </label>
-          <label>
-            <dt>本文</dt>
-            <dd>
-              <textarea
-                id="message"
-                maxLength="500"
-                value={contactData.message}
-                onChange={handleChange}
-                disabled={isSubmitting}
-                rows="10"
-              />
-            </dd>
+          </div>
+        </div>
+        <div className={classes.formItem}>
+          <label htmlFor="message">本文</label>
+          <div className={classes.formChild}>
+            <textarea
+              id="message"
+              maxLength="500"
+              value={contactData.message}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              rows="10"
+            />
             {errors.message && <p className={classes.error}>{errors.message}</p>}
-        </label>
+          </div>
         </div>
         <div className={classes.btnContainer}>
           <input
